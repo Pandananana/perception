@@ -4,16 +4,18 @@ import matplotlib.pyplot as plt
 
 video = cv2.VideoCapture("Robots.mp4")
 frame_buffer = []
+frame_count = 0
 
 while True:
     ret, frame = video.read()
-    print("Frame buffer length: ", len(frame_buffer))
-    frame_buffer.append(frame)
+    frame_count += 1
+    frame_buffer.append(frame) if frame_count % 2 == 0 else None
 
     if not ret:
         break
 
     if len(frame_buffer) < 2:
+        cv2.imshow("Frame", frame)
         continue
 
     gray1 = cv2.cvtColor(frame_buffer[0], cv2.COLOR_BGR2GRAY)
