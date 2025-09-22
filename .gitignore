@@ -11,3 +11,9 @@ wheels/
 
 # Videos
 *.mp4
+
+# Images
+imgs/
+
+# Mac OS
+.DS_Store
