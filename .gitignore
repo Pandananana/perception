@@ -14,6 +14,12 @@ wheels/
 
 # Images
 imgs/
+*.png
+*.jpg
 
 # Mac OS
 .DS_Store
+
+# Point Clouds
+*.pcd
+*.ply
