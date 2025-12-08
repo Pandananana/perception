@@ -16,6 +16,7 @@ wheels/
 imgs/
 *.png
 *.jpg
+*.jpeg
 
 # Mac OS
 .DS_Store
@@ -23,3 +24,6 @@ imgs/
 # Point Clouds
 *.pcd
 *.ply
+
+*.txt
+*.pdf

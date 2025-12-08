@@ -13,4 +13,5 @@ dependencies = [
     "numba",
     "scikit-learn>=0.24.2",
     "open3d<0.19",
+    "scikit-image>=0.24.0",
 ]

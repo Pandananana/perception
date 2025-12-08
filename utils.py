@@ -1,4 +1,6 @@
 import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
 
 
 class CameraMatrix:
@@ -90,3 +92,30 @@ class SimilarityMetrics:
             return 0.0
 
         return float(numerator / denominator)
+
+
+def plot_elbow_graph(data: np.ndarray, min_clusters: int = 3, max_clusters: int = 6) -> None:
+    """
+    Plot an elbow graph for K-means clustering.
+
+    Args:
+        data: Input data array where each row is a data point
+        min_clusters: Minimum number of clusters to test
+        max_clusters: Maximum number of clusters to test
+    """
+    k_values = range(min_clusters, max_clusters + 1)
+    inertias = []
+
+    for k in k_values:
+        kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
+        kmeans.fit(data)
+        inertias.append(kmeans.inertia_)
+
+    plt.figure()
+    plt.plot(k_values, inertias, 'bo-')
+    plt.xlabel('Number of clusters (k)')
+    plt.ylabel('Inertia (WCSS)')
+    plt.title('Elbow Method')
+    plt.xticks(k_values)
+    plt.grid(True)
+    plt.show()
